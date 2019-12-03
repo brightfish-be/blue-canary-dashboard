@@ -1,0 +1,10 @@
+.git
+.idea
+node_modules
+resources/sass/**
+resources/js/**
+storage/framework/**/*
+storage/clockwork/**
+storage/logs/**
+tests
+vendor
