@@ -82,12 +82,11 @@ class CountersController extends Controller
      */
     protected function validateCounterAttr(Request $request): array
     {
-        $nameMin = Counter::NAME_LENGTH_MIN;
-        $nameMax = Counter::NAME_LENGTH_MAX;
+        $nameRegex = config('canary.settings.counter.name_validation');
 
         /** @noinspection PhpUndefinedMethodInspection */
         return $attr = $request->validate([
-            'name' => "required|min:$nameMin|max:$nameMax"
+            'name' => "required|regex:/^$nameRegex$/i"
         ]);
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * Tenant model
+ * Tenant model.
  *
  * @property int $id
  * @property string $name

@@ -1,6 +1,5 @@
 <?php
 
-use App\Counter;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,12 +12,15 @@ class CreateCountersTable extends Migration
      */
     public function up()
     {
-        Schema::create('counters', function (Blueprint $table) {
+        $config = config('canary.settings.counter');
+        $max = $config['name_length_max'];
+
+        Schema::create('counters', function (Blueprint $table) use ($max) {
             $table->bigIncrements('id');
 
             $table->unsignedBigInteger('app_id')->index();
 
-            $table->string('name', Counter::NAME_LENGTH_MAX);
+            $table->string('name', $max);
 
             $table->timestamps();
 

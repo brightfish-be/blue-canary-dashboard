@@ -63,11 +63,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        $version = config('canary.api_version');
-
         Route::prefix('api')
              ->middleware('api')
              ->namespace($this->namespace)
-             ->group($this->app->basePath("routes/api-$version.php"));
+             ->group($this->app->basePath('routes/api.php'));
     }
 }

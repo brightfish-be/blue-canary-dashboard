@@ -1,6 +1,5 @@
 <?php
 
-use App\App;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,12 +12,15 @@ class CreateAppsTable extends Migration
      */
     public function up()
     {
-        Schema::create('apps', function (Blueprint $table) {
+        $config = config('canary.settings.counter');
+        $max = $config['name_length_max'];
+
+        Schema::create('apps', function (Blueprint $table) use ($max) {
             $table->bigIncrements('id');
 
             $table->unsignedBigInteger('tenant_id')->index();
 
-            $table->string('name', App::NAME_LENGTH_MAX);
+            $table->string('name', $max);
             $table->uuid('uuid')->unique();
 
             $table->timestamps();

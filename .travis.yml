@@ -1,5 +1,3 @@
-sudo: required
-
 language: php
 
 php:
@@ -8,6 +6,12 @@ php:
 install:
   - travis_retry composer self-update
   - travis_retry composer update --prefer-dist --no-interaction --no-suggest
+
+before_script:
+  - cp .env-example .env
+  - mysql -e 'create database bc_test;'
+  - php artisan key:generate
+  - php artisan migrate --seed
 
 branches:
   only:

@@ -2,13 +2,12 @@
 
 namespace App;
 
-use App\Exceptions\InvalidCounterName;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * Counter model
+ * Counter model.
  *
  * @property App $app
  * @property int $id
@@ -21,12 +20,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Counter extends Model
 {
-    /** @var int */
-    const NAME_LENGTH_MIN = 6;
-
-    /** @var int */
-    const NAME_LENGTH_MAX = 255;
-
     /** {@inheritdoc} */
     protected $fillable = [
         'name',
@@ -66,26 +59,10 @@ class Counter extends Model
     /**
      * Laravel mutator.
      * @param string $value
-     * @throws InvalidCounterName
      */
     protected function setNameAttribute(string $value): void
     {
-        $min = static::NAME_LENGTH_MIN;
-        $max = static::NAME_LENGTH_MAX;
-
-        $len = strlen($value);
-
-        if ($len < $min || $len > $max) {
-            throw new InvalidCounterName("The counter's name length can only be between $min and $max.");
-        }
-
-        $value = strtolower($value);
-
-        if (preg_match('#[^a-z0-9\-_.]#', $value)) {
-            throw new InvalidCounterName('The counter\'s name contains invalid characters.');
-        }
-
-        $this->attributes['name'] = $value;
+        $this->attributes['name'] = strtolower($value);
     }
 
     /**
@@ -94,10 +71,8 @@ class Counter extends Model
      */
     public function generateUrl(): string
     {
-        $base = config('app.url') . '/api/' . config('canary.api_version');
+        $base = url('/api/' . config('canary.settings.api_version'));
 
-        $appUuid = $this->app->uuid;
-
-        return "$base/$appUuid/{$this->name}/";
+        return "$base/{$this->app->uuid}/{$this->name}/";
     }
 }

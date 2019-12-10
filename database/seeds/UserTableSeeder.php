@@ -36,13 +36,7 @@ class UserTableSeeder extends Seeder
     {
         $this->createRoles();
 
-        $email = config('canary.admin_email');
-
-        if (!$email) {
-            $this->command->warn('ADMIN_EMAIL seems not provided in .env - default user not created!');
-            $this->command->info('Set ADMIN_EMAIL and run `php artisan db:seed -=class=UserTableSeeder`.');
-            return;
-        }
+        $email = config('canary.settings.admin_email');
 
         $pw = Str::random(16);
 

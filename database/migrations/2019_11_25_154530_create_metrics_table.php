@@ -17,7 +17,7 @@ class CreateMetricsTable extends Migration
 
             $table->unsignedBigInteger('event_id')->index();
 
-            $table->enum('type', ['double', 'float', 'integer'])->default('integer');
+            $table->enum('type', ['float', 'int'])->default('int');
             $table->string('key', 255);
             $table->double('value');
             $table->string('unit', 5)->nullable();

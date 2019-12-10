@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\App;
-use App\Counter;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -73,12 +72,14 @@ class AppsController extends Controller
      */
     protected function validateAppAttr(Request $request): array
     {
-        $nameMin = App::NAME_LENGTH_MIN;
-        $nameMax = App::NAME_LENGTH_MAX;
+        $config = config('canary.settings.app');
+
+        $min = $config['name_length_min'];
+        $max = $config['name_length_max'];
 
         /** @noinspection PhpUndefinedMethodInspection */
         return $attr = $request->validate([
-            'name' => "required|min:$nameMin|max:$nameMax"
+            'name' => "required|min:$min|max:$max"
         ]);
     }
 }

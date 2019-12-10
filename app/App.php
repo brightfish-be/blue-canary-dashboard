@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
 
 /**
- * Tenant application model
+ * Tenant application model.
  *
  * @property Tenant $tenant
  * @property Collection $counters
@@ -25,12 +25,6 @@ use Illuminate\Support\Collection;
 class App extends Model
 {
     use HasUuid, HasTenant;
-
-    /** @var int */
-    const NAME_LENGTH_MIN = 6;
-
-    /** @var int */
-    const NAME_LENGTH_MAX = 255;
 
     /** {@inheritdoc} */
     protected $fillable = [

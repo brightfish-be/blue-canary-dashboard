@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Metric model
+ * Metric model.
  *
  * @property Event $event
  * @property string $type
  * @property string $key
- * @property int|float|double $value
+ * @property int|float $value
  * @property string $unit
  *
  * @copyright 2019 Brightfish
@@ -31,7 +31,7 @@ class Metric extends Model
     protected $casts = [
         'type' => 'string',
         'key' => 'string',
-        'value' => 'double',
+        'value' => 'float',
         'unit' => 'string',
         'created_at' => 'datetime',
     ];
@@ -47,17 +47,15 @@ class Metric extends Model
 
     /**
      * Return the properly casted value.
-     * @return double|float|int
+     * @return float|int
      */
     protected function getValueAttribute()
     {
         switch ($this->type) {
-            case 'float':
-                return (float) $this->attributes['value'];
-            case 'integer':
-                return (int) $this->attributes['value'];
+            case 'int':
+                return (int)$this->attributes['value'];
             default:
-                return (double) $this->attributes['value'];
+                return (float)$this->attributes['value'];
         }
     }
 }
