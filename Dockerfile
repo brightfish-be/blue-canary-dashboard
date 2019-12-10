@@ -55,8 +55,7 @@ RUN composer install -n --no-dev --no-scripts --no-autoloader --no-suggest
 # Copy the app
 COPY . .
 
-# Set all app files as owned by www-data; ensure write
-# access to the storage and cache folders;
+# Ensure write access to the storage and cache folders;
 # make run command executable.
 RUN chmod -R ug+rw storage \
     && chmod -R ug+rwx bootstrap/cache \

@@ -7,17 +7,12 @@ use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    //use DatabaseMigrations;
+    use RefreshDatabase;
 
-    /**
-     * A basic test example.
-     * @return void
-     */
-    public function testBasicTest()
+    public function test_route_not_found_returns_json()
     {
-        //$this->expectException(NotFoundHttpException::class);
-        //$r = $this->get('api/v1/event/47145dc2-810f-4a75-8c84-e21529e3d26b/default.counter')->response;
-        //dd($r);
-        $this->assertTrue(true);
+        $r = $this->get('api/v1/event/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/default.counter');
+
+        $this->assertEquals(404, $r->json()['status']);
     }
 }

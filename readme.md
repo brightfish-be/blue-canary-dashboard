@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.com/brightfish-be/blue-canary-dashboard.svg?branch=master&label=Build&style=flat-square)](https://travis-ci.com/brightfish-be/blue-canary-dashboard)
 [![StyleCI](https://github.styleci.io/repos/225647185/shield?branch=master&style=flat-square)](https://github.styleci.io/repos/225647185)
 
+**[WORK IN PROGRESS...]**  
 Laravel-based monitoring and metrics collection server.  
 Linked repositories: [Aggregator](https://github.com/brightfish-be/blue-canary-aggregator) | [Server](https://github.com/brightfish-be/blue-canary-server) | [Installer](https://github.com/brightfish-be/blue-canary-installer).
 
