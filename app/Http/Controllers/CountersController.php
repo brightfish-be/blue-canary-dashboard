@@ -84,9 +84,9 @@ class CountersController extends Controller
     {
         $nameRegex = config('canary.settings.counter.name_validation');
 
-        /** @noinspection PhpUndefinedMethodInspection */
+        /* @noinspection PhpUndefinedMethodInspection */
         return $attr = $request->validate([
-            'name' => "required|regex:/^$nameRegex$/i"
+            'name' => "required|regex:/^$nameRegex$/i",
         ]);
     }
 }

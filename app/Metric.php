@@ -24,7 +24,7 @@ class Metric extends Model
 
     /** {@inheritdoc} */
     protected $fillable = [
-        'type', 'key', 'value', 'unit'
+        'type', 'key', 'value', 'unit',
     ];
 
     /** {@inheritdoc} */

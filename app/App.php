@@ -28,12 +28,12 @@ class App extends Model
 
     /** {@inheritdoc} */
     protected $fillable = [
-        'name', 'uuid'
+        'name', 'uuid',
     ];
 
     /** {@inheritdoc} */
     protected $hidden = [
-        'id', 'tenant_id'
+        'id', 'tenant_id',
     ];
 
     /** {@inheritdoc} */

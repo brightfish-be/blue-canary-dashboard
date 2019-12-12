@@ -45,7 +45,7 @@ trait HasUuid
      */
     public function findByUuid(string $uuid): Model
     {
-        /** @noinspection PhpUndefinedMethodInspection */
+        /* @noinspection PhpUndefinedMethodInspection */
         return static::byUuid($uuid)->first();
     }
 }

@@ -44,7 +44,7 @@ class UserTableSeeder extends Seeder
             'name' => 'Admin',
             'email' => $email,
             'password' => Hash::make($pw),
-            'tenant_id' => Tenant::first()->id
+            'tenant_id' => Tenant::first()->id,
         ]);
 
         $user->assign('super-admin');

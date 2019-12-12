@@ -77,9 +77,9 @@ class AppsController extends Controller
         $min = $config['name_length_min'];
         $max = $config['name_length_max'];
 
-        /** @noinspection PhpUndefinedMethodInspection */
+        /* @noinspection PhpUndefinedMethodInspection */
         return $attr = $request->validate([
-            'name' => "required|min:$min|max:$max"
+            'name' => "required|min:$min|max:$max",
         ]);
     }
 }

@@ -19,7 +19,7 @@ class Event extends Model
 
     /** {@inheritdoc} */
     protected $fillable = [
-        'client_id', 'client_name', 'status_code', 'status_remark', 'generated_at'
+        'client_id', 'client_name', 'status_code', 'status_remark', 'generated_at',
     ];
 
     /** {@inheritdoc} */

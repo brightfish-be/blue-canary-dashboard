@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -10,7 +12,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Base controller
+ * Base controller.
  *
  * @package App\Http\Controllers
  * @copyright 2019 Brightfish
@@ -21,18 +23,18 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     /**
-     * Default app route, render the base blade template
+     * Default app route, render the base blade template.
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function layout()
     {
         return view('layout', [
-            'appGlobals' => []
+            'appGlobals' => [],
         ]);
     }
 
     /**
-     * Standard 200 OK json output
+     * Standard 200 OK json output.
      * @param mixed $data
      * @param int $status
      * @param array $headers
@@ -59,7 +61,7 @@ class Controller extends BaseController
     }
 
     /**
-     * Standard json output with error(s)
+     * Standard json output with error(s).
      * @param mixed $error
      * @param int $status
      * @param array $headers
@@ -82,7 +84,7 @@ class Controller extends BaseController
     }
 
     /**
-     * Health check endpoint method
+     * Health check endpoint method.
      * @return Response
      */
     public function health(): Response
@@ -100,7 +102,7 @@ class Controller extends BaseController
     }
 
     /**
-     * Set the JSON encoding based on the current env
+     * Set the JSON encoding based on the current env.
      * @return int
      */
     protected static function getJsonEncodingOptions(): int

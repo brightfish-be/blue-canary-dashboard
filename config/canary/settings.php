@@ -12,13 +12,13 @@ return [
     'app' => [
         'name_length_min' => 6,
         'name_length_max' => 255,
-        'uuid_validation' => '[a-z0-9\-]{36}'
+        'uuid_validation' => '[a-z0-9\-]{36}',
     ],
 
     # Counter model settings
     'counter' => [
         'name_length_min' => 6,
         'name_length_max' => 255,
-        'name_validation' => '[a-z0-9\-_\.]{6,255}'
-    ]
+        'name_validation' => '[a-z0-9\-_\.]{6,255}',
+    ],
 ];

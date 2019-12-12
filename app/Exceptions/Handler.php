@@ -53,7 +53,7 @@ class Handler extends ExceptionHandler
         if ($e instanceof ValidationException) {
             return Controller::respondWithError([
                 'message' => $e->getMessage(),
-                'details' => $e->errors()
+                'details' => $e->errors(),
             ]);
         }
 

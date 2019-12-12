@@ -55,10 +55,9 @@ RUN composer install -n --no-dev --no-scripts --no-autoloader --no-suggest
 # Copy the app
 COPY . .
 
-# Ensure write access to the storage and cache folders;
+# Ensure access to the storage and cache folders;
 # make run command executable.
-RUN chmod -R ug+rw storage \
-    && chmod -R ug+rwx bootstrap/cache \
+RUN chown -R www-data:www-data storage bootstrap \
     && chmod +x ./install/run.sh
 
 CMD ./install/run.sh

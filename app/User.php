@@ -1,4 +1,6 @@
-<?php namespace App;
+<?php
+
+namespace App;
 
 use App\Traits\HasTenant;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

@@ -12,7 +12,7 @@ class CreateTenantsTable extends Migration
      */
     public function up()
     {
-        $defaultHost = parse_url(config('app.url'),  PHP_URL_HOST);
+        $defaultHost = parse_url(config('app.url'), PHP_URL_HOST);
 
         Schema::create('tenants', function (Blueprint $table) use ($defaultHost) {
             $table->bigIncrements('id');

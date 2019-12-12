@@ -23,7 +23,6 @@ $router->group(['prefix' => 'v1'], function (Router $router) {
         # CRUDs
         $router->apiResource('apps', 'AppsController');
         $router->apiResource('apps.counters', 'CountersController');
-
     });
 });
 

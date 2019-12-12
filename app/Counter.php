@@ -27,7 +27,7 @@ class Counter extends Model
 
     /** {@inheritdoc} */
     protected $hidden = [
-        'id', 'app_id'
+        'id', 'app_id',
     ];
 
     /** {@inheritdoc} */
