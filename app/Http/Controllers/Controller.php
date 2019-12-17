@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Base controller.
  *
- * @package App\Http\Controllers
  * @copyright 2019 Brightfish
  * @author Arnaud Coolsaet <a.coolsaet@brightfish.be>
  */

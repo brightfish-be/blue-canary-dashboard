@@ -20,4 +20,4 @@ branches:
     - master
 
 script:
-  - vendor/bin/phpunit
+  - composer test
