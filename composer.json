@@ -1,13 +1,23 @@
 {
-    "name": "brightfish/blue-canary",
-    "type": "project",
+    "name": "brightfish/blue-canary-dashboard",
     "description": "Laravel-based monitoring and metrics collection server",
+    "type": "project",
     "keywords": [
         "laravel",
         "monitoring",
-        "metrics"
+        "performance-metrics",
+        "monitoring-server",
+        "api-server"
     ],
-    "license": "GPL-3.0",
+    "license": "GPL-3.0-only",
+    "homepage": "https://github.com/brightfish-be/blue-canary-dashboard#readme",
+    "authors": [
+        {
+            "name": "Arnaud Coolsaet",
+            "email": "a.coolsaet@brightfish.be",
+            "homepage": "https://brightfish.be"
+        }
+    ],
     "require": {
         "php": "^7.3",
         "ext-json": "*",

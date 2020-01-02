@@ -5,13 +5,17 @@
 
 **[WORK IN PROGRESS...]**  
 Laravel-based monitoring and metrics collection server.  
-Linked repositories: [Aggregator](https://github.com/brightfish-be/blue-canary-aggregator) | [Server](https://github.com/brightfish-be/blue-canary-server) | [Installer](https://github.com/brightfish-be/blue-canary-installer).
+Linked repositories: [Aggregator](https://github.com/brightfish-be/blue-canary-aggregator) 
+| [Server](https://github.com/brightfish-be/blue-canary-server) 
+| [Installer](https://github.com/brightfish-be/blue-canary-installer)
+| [Client](https://github.com/brightfish-be/blue-canary-client).
 
 ## Production installation
+(You may need `sudo` for the `setup` and `install` command since these include docker commands.)
 1. `git clone git@github.com:brightfish-be/blue-canary-installer.git .`
-2. `sudo ./setup`
-3. Edit the env files
-4. `sudo ./install`
+2. `./setup`
+3. Edit your `.env` file
+4. `./install`
 
 ## Development installation
 ```
@@ -25,3 +29,6 @@ cd blue-canary-installer
 docker-compose -f docker-compose.yml -f docker-compose-dev.yml build
 docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d
 ```
+
+## License
+GNU General Public License (GPL). Please see License File for more information.
