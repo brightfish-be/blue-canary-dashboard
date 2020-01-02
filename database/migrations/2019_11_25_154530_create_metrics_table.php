@@ -17,10 +17,10 @@ class CreateMetricsTable extends Migration
 
             $table->unsignedBigInteger('event_id')->index();
 
-            $table->enum('type', ['float', 'int'])->default('int');
+            $table->enum('type', ['float', 'int'])->default('float');
             $table->string('key', 255);
             $table->double('value');
-            $table->string('unit', 5)->nullable();
+            $table->string('unit', 10)->nullable();
 
             $table->timestamp('created_at', 0)->nullable();
 

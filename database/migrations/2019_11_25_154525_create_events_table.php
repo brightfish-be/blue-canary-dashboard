@@ -19,7 +19,7 @@ class CreateEventsTable extends Migration
 
             $table->string('client_id', 255)->nullable();
             $table->string('client_name', 255)->nullable();
-            $table->smallInteger('status_code')->default(0);
+            $table->unsignedTinyInteger('status_code')->default(0);
             $table->string('status_remark', 255)->nullable();
 
             $table->timestamp('generated_at')->nullable();
