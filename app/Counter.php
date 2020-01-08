@@ -33,7 +33,6 @@ class Counter extends Model
     /** {@inheritdoc} */
     protected $casts = [
         'name' => 'string',
-        'uuid' => 'string',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
