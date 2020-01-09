@@ -14,12 +14,17 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Event extends Model
 {
-    /** {@inheritdoc} */
+    /** {@inheritDoc} */
     const UPDATED_AT = null;
 
-    /** {@inheritdoc} */
+    /** {@inheritDoc} */
     protected $fillable = [
         'client_id', 'client_name', 'status_code', 'status_remark', 'generated_at',
+    ];
+
+    /** {@inheritDoc} */
+    protected $with = [
+        'metrics'
     ];
 
     /** {@inheritdoc} */

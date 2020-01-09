@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -28,7 +29,15 @@ class Controller extends BaseController
     public function layout()
     {
         return view('layout', [
-            'appGlobals' => [],
+            'jsGlobals' => [
+                'data' => App::with('counters')->get()->map(function(App $app) {
+                    $app->counters->map(function($counter) {
+                        $counter->events;
+                        return $counter;
+                    });
+                    return $app;
+                })->toArray()
+            ]
         ]);
     }
 
