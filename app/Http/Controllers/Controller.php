@@ -30,14 +30,16 @@ class Controller extends BaseController
     {
         return view('layout', [
             'jsGlobals' => [
-                'data' => App::with('counters')->get()->map(function(App $app) {
-                    $app->counters->map(function($counter) {
+                'data' => App::with('counters')->get()->map(function (App $app) {
+                    $app->counters->map(function ($counter) {
                         $counter->events;
+
                         return $counter;
                     });
+
                     return $app;
-                })->toArray()
-            ]
+                })->toArray(),
+            ],
         ]);
     }
 
