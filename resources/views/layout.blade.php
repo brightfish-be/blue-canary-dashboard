@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="google" value="notranslate">
-        <meta name="robots" value="nofollow, noindex, noimageindex, noarchive, nosnippet, noodp">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{{ config('app.name') }}</title>
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">

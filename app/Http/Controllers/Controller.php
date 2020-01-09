@@ -30,6 +30,7 @@ class Controller extends BaseController
     {
         return view('layout', [
             'jsGlobals' => [
+                'levels' => config('canary.settings.levels'),
                 'data' => App::with('counters')->get()->map(function (App $app) {
                     $app->counters->map(function ($counter) {
                         $counter->events;

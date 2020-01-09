@@ -21,4 +21,17 @@ return [
         'name_length_max' => 255,
         'name_validation' => '[a-z0-9\-_\.]{6,255}',
     ],
+
+    # Levels
+    'levels' => [
+        'emergency',
+        'alert',
+        'critical',
+        'error',
+        'warning',
+        'notice',
+        'info',
+        'debug',
+    ],
+
 ];

@@ -4,9 +4,15 @@
             <b-tab v-for="tab in tabs" :key="tab.uuid" :title="tab.name">
 
                 <b-table striped small :items="getItems(tab)" :fields="fields">
+                    <template v-slot:cell(status)="row">
+                        <span :class="'badge badge-' + getStatus(row.item)">{{ getStatus(row.item) }}</span>
+                    </template>
+                    <template v-slot:cell(client)="row">
+                        <b>{{ row.item.client_name }}</b> <small>({{ row.item.client_id }})</small>
+                    </template>
                     <template v-slot:cell(actions)="row">
                         <b-button size="sm" @click="row.toggleDetails">
-                            {{ row.detailsShowing ? 'Hide' : 'Show' }} Details
+                            {{ row.detailsShowing ? 'Hide' : 'Show' }} metrics
                         </b-button>
                     </template>
                     <template v-slot:row-details="row">
@@ -29,16 +35,16 @@
     export default {
         data() {
             return {
+                levels: window.canaryGlobals.levels,
                 tabs: this.getTabs(window.canaryGlobals.data),
                 items: [],
                 fields: [
-                    { key: 'counter.name', label: 'Counter', sortable: true, sortDirection: 'desc' },
-                    { key: 'client_name', sortable: true },
-                    { key: 'status_code', label: 'Status', sortable: true, class: 'text-center' },
-                    { key: 'status_remark', sortable: true },
-                    { key: 'generated_at', sortable: true },
-                    { key: 'created_at', sortable: true },
-                    { key: 'actions', label: 'Actions' }
+                    {key: 'status', sortable: true, class: 'text-center'},
+                    {key: 'client', sortable: true},
+                    {key: 'status_remark'},
+                    {key: 'generated_at', sortable: true},
+                    {key: 'created_at', sortable: true},
+                    {key: 'actions', label: ''}
                 ],
             }
         },
@@ -60,6 +66,9 @@
                 let app = window.canaryGlobals.data.find(app => app.uuid === tab.uuid),
                     counter = app.counters.find(counter => counter.name === tab.counter);
                 return counter.events
+            },
+            getStatus(item) {
+                return this.levels[item.status_code];
             }
         }
     }
