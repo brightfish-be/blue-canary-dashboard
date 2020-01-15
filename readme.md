@@ -11,11 +11,12 @@ Linked repositories: [Aggregator](https://github.com/brightfish-be/blue-canary-a
 | [Client](https://github.com/brightfish-be/blue-canary-client).
 
 ## Production installation
-(You may need `sudo` for the `setup` and `install` commands since these include docker commands.)
-1. `git clone git@github.com:brightfish-be/blue-canary-installer.git .`
-2. `./setup`
-3. Edit your `.env` file
-4. `./install`
+(You may need `sudo` for the `setup` and `migrate` commands since these include docker commands.)
+1. `mkdir canary && cd canary`
+2. `git clone git@github.com:brightfish-be/blue-canary-installer.git .`
+3. `./setup latest`
+4. Edit your `.env` files
+5. `./migrate`
 
 ## Development installation
 ```
