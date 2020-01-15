@@ -12,7 +12,7 @@ return [
     'app' => [
         'name_length_min' => 6,
         'name_length_max' => 255,
-        'uuid_validation' => '[a-z0-9\-]{36}',
+        'uuid_validation' => '[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}',
     ],
 
     # Counter model settings
