@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -53,5 +54,15 @@ class Event extends Model
     public function metrics()
     {
         return $this->hasMany('App\Metric');
+    }
+
+    /**
+     * Convert to timezone.
+     * @param string $value
+     * @return Carbon|string
+     */
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::parse($value, config('app.timezone'))->format('Y-m-d H:i:s');
     }
 }
