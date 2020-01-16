@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-tabs content-class="mt-3">
-            <b-tab v-for="tab in tabs" :key="tab.uuid" :title="tab.name">
+            <b-tab v-for="(tab, i) in tabs" :key="i" :active="i === getTabIndex()" :title="tab.name" @click.prevent="() => setTabHash(tab.counter)">
 
                 <b-table striped small :items="getItems(tab)" :fields="fields">
                     <template v-slot:cell(status)="row">
@@ -19,7 +19,7 @@
                         <b-card>
                             <ul>
                                 <li v-for="metric in row.item.metrics" :key="metric.id">
-                                    {{ metric.key }}: {{ metric.value }}{{ metric.unit }}
+                                    {{ metric.key }}: <b>{{ metric.value }}</b>{{ metric.unit }}
                                 </li>
                             </ul>
                         </b-card>
@@ -35,8 +35,8 @@
     export default {
         data() {
             return {
-                levels: window.canaryGlobals.levels,
                 tabs: this.getTabs(window.canaryGlobals.data),
+                levels: window.canaryGlobals.levels,
                 items: [],
                 fields: [
                     {key: 'status', sortable: true, class: 'text-center'},
@@ -65,10 +65,21 @@
             getItems(tab) {
                 let app = window.canaryGlobals.data.find(app => app.uuid === tab.uuid),
                     counter = app.counters.find(counter => counter.name === tab.counter);
-                return counter.events
+
+                return counter.events.sort((a, b) => a.created_at < b.created_at)
             },
             getStatus(item) {
                 return this.levels[item.status_code];
+            },
+            setTabHash(id) {
+                window.location.hash = '#' + id;
+            },
+            getTabIndex() {
+                const tabs = this.getTabs(window.canaryGlobals.data),
+                    counter = window.location.hash.replace('#', ''),
+                    idx = (tabs || this.tabs).findIndex(tab => tab.counter === counter);
+
+                return idx > 0 ? idx : 0;
             }
         }
     }

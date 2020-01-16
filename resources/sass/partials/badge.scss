@@ -1,0 +1,11 @@
+
+/*
+  Custom error level badges
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+@each $color, $value in $level-colors {
+    .badge-#{$color} {
+        @include badge-variant($value);
+        color: $white;
+    }
+}

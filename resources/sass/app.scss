@@ -42,11 +42,5 @@
 // Bootstrap vue
 @import '~bootstrap-vue/dist/bootstrap-vue.css';
 
-// tmp
-.badge {
-    color: $white;
-}
-.badge-debug {
-    @extend .badge;
-    background-color: #666;
-}
+// Components
+@import 'partials/badge';
